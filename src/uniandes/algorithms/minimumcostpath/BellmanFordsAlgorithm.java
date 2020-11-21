@@ -1,11 +1,8 @@
 package uniandes.algorithms.minimumcostpath;
 
-import java.util.ArrayList;
+public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
 
-public class BellmanFordsAlgorithm {
-
-	public ArrayList<String[]> findPaths(ArrayList<String[]> input) {
-		
+	public int[][] findPaths(int[][] input) {
 		return null;
 	}
 }

@@ -1,11 +1,9 @@
-package uniandes.main;
+package uniandes.algorithms.minimumcostpath;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-//import uniandes.algorithms.minimumcostpath.MinimumCostPathAlgorithm;
-
-public class Main {
+public class FirstExcerciseMain {
 
 	private final static String SMALL_SET = "./data/distances5.txt";
 	
@@ -17,13 +15,12 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		try {
-			// Tomar en cuenta uno de los argumentos para decidir cuál string usar
 			
 			String chosen = "";
 			
-			if      (args[0].equals("s")) chosen = SMALL_SET;
-			else if (args[0].equals("m")) chosen = MEDIUM_SET;
-			else if (args[0].equals("b")) chosen = BIG_SET;
+			if      (args[1].equals("s")) chosen = SMALL_SET;
+			else if (args[1].equals("m")) chosen = MEDIUM_SET;
+			else if (args[1].equals("b")) chosen = BIG_SET;
 			
 			BufferedReader counter = new BufferedReader(new FileReader(chosen));
 			String current = null;
@@ -52,12 +49,14 @@ public class Main {
 			
 			System.out.println("Matrix lodaded correctly!");
 			
-			/*
-			String algorithmClassName = Main.class.getPackage().getName()+"."+args[0]+"Algorithm";
+			// Either Dijkstras, BellmanFords or FloydWarschalls
+			String algorithmClassName = FirstExcerciseMain.class.getPackage().getName() + "." + args[0] + "Algorithm";
 			MinimumCostPathAlgorithm finder = (MinimumCostPathAlgorithm)Class.forName(algorithmClassName).newInstance();
 			
+			System.out.println("Chosen class: " + algorithmClassName);
+			
 			finder.findPaths(matrix);
-			*/
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
