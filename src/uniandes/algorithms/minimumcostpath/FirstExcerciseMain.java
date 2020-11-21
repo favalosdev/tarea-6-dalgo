@@ -29,7 +29,7 @@ public class FirstExcerciseMain {
 			
 			while ((current = counter.readLine()) != null) rows++;
 			
-			int[][] matrix = new int[rows][cols];
+			Double[][] weight = new Double[rows][cols];
 			
 			counter.close();
 			
@@ -39,7 +39,10 @@ public class FirstExcerciseMain {
 			while ((current = parser.readLine()) != null) {
 				String[] values = current.split("\t");
 				
-				for (int j = 0; j < values.length; j++) matrix[i][j] = Integer.parseInt(values[j]);
+				for (int j = 0; j < values.length; j++) {	
+					if (values[j].equals("-1")) weight[i][j] = Double.POSITIVE_INFINITY;
+					else                        weight[i][j] = Double.parseDouble((values[j]));
+				}
 				i++;
 			}
 			
@@ -55,7 +58,20 @@ public class FirstExcerciseMain {
 			
 			System.out.println("Chosen class: " + algorithmClassName);
 			
-			finder.findPaths(matrix);
+			// Print matrix
+			
+			Double [][] minimumCost = finder.findPaths(weight);
+			
+			// Test for small and medium only!
+			
+			
+			for (int row = 0; row < minimumCost.length; row++) {
+				for (int col = 0; col < minimumCost.length; col++) {
+					System.out.println(minimumCost[row][col]);
+				}
+			}
+			
+			//System.out.println(minimumCost);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

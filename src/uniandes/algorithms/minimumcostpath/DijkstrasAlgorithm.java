@@ -2,7 +2,7 @@ package uniandes.algorithms.minimumcostpath;
 
 public class DijkstrasAlgorithm implements MinimumCostPathAlgorithm {
 	
-	public int[][] findPaths(int[][] input) {
+	public Double[][] findPaths(Double[][] input) {
 		return null;
 	}
 }

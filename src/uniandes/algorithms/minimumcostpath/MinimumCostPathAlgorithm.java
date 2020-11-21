@@ -2,5 +2,7 @@ package uniandes.algorithms.minimumcostpath;
 
 public interface MinimumCostPathAlgorithm {
 	
-	public int[][] findPaths(int[][] input);
+	// TODO: Enforce interface if necessary, otherwise don't worry.
+	public Double[][] findPaths(Double[][] input);
+	
 }
