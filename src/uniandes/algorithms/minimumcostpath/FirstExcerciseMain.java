@@ -5,11 +5,11 @@ import java.io.FileReader;
 
 public class FirstExcerciseMain {
 
-	private final static String SMALL_SET = "./data/distances5.txt";
+	private final static String SMALL = "./data/distances5.txt";
 	
-	private final static String MEDIUM_SET = "./data/distances100.txt";
+	private final static String MEDIUM = "./data/distances100.txt";
 	
-	private final static String BIG_SET = "./data/distances1000.txt";
+	private final static String BIG = "./data/distances1000.txt";
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -18,9 +18,9 @@ public class FirstExcerciseMain {
 			
 			String chosen = "";
 			
-			if      (args[1].equals("s")) chosen = SMALL_SET;
-			else if (args[1].equals("m")) chosen = MEDIUM_SET;
-			else if (args[1].equals("b")) chosen = BIG_SET;
+			if      (args[1].equals("s")) chosen = SMALL;
+			else if (args[1].equals("m")) chosen = MEDIUM;
+			else if (args[1].equals("b")) chosen = BIG;
 			
 			BufferedReader counter = new BufferedReader(new FileReader(chosen));
 			String current = null;
@@ -64,14 +64,12 @@ public class FirstExcerciseMain {
 			
 			// Test for small and medium only!
 			
-			
 			for (int row = 0; row < minimumCost.length; row++) {
 				for (int col = 0; col < minimumCost.length; col++) {
-					System.out.println(minimumCost[row][col]);
+					System.out.print(minimumCost[row][col] + " "); 
 				}
+				System.out.println();
 			}
-			
-			//System.out.println(minimumCost);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

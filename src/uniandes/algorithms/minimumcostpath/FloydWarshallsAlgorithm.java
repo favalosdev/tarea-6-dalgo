@@ -14,8 +14,9 @@ public class FloydWarshallsAlgorithm implements MinimumCostPathAlgorithm {
 		
 		for (int k = 1; k < n; k++) {
 			for (int i = 1; i < n; i++) {
-				for (int j = 1; j < n; j++) {	
-					distances[i][j] = Math.min(distances[i][j], distances[i][k] + distances[k][j]);
+				for (int j = 1; j < n; j++) {
+					if (!weight[i][j].equals(Double.POSITIVE_INFINITY)) 
+						distances[i][j] = Math.min(distances[i][j], distances[i][k] + distances[k][j]);
 				}
 			}
 		}
