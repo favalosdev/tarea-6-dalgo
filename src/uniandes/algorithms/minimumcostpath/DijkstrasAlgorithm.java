@@ -1,6 +1,13 @@
 package uniandes.algorithms.minimumcostpath;
 
-public class DijkstrasAlgorithm implements MinimumCostPathAlgorithm {
+import uniandes.structures.Graph;
+public class DijkstrasAlgorithm {
+	
+	private Graph graph;
+	
+	public DijkstrasAlgorithm(Graph graph) {
+		this.graph = graph;
+	}
 	
 	public Double[][] findPaths(Double[][] input) {
 		return null;

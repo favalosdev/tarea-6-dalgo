@@ -1,66 +1,75 @@
 package uniandes.algorithms.minimumcostpath;
 import algorithms.exceptions.InvalidGraphException;
+import uniandes.structures.Edge;
+import uniandes.structures.Graph;
 
-public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
+public class BellmanFordsAlgorithm {
 
-	public Double[][] findPaths(Double[][] weight) {
+
+	private Graph graph;
+	
+	public BellmanFordsAlgorithm(Graph graph) {
+		this.graph = graph;
+	}
+	
+	public Double[][] findPaths() {
 
 		// Create matrix to calculate the things as they should be
 		try {
-			int n = weight.length;
+			// Construir matriz de caminos mínimos
+			Double[][] distances = new Double[graph.V()][graph.V()];
 
-			Double[][] minimumCosts = new Double[n][n];
+			for (int key = 0; key < graph.V(); key++) {
 
-			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
-					Double[] cost = bellmanFord(weight, i);
-					minimumCosts[j][i] = cost[j];
-				}
+				Double[] values = bellmanFord(key);
+
+				for (int j = 0; j < values.length; j++)
+					distances[j][key] = values[j]; 
 			}
 			
-			return minimumCosts;
+			return distances;
+
 		} catch (InvalidGraphException e) {
-			System.out.println("ERROR");
+			System.out.println(e.getMessage());
 			return null;
 		}
 	}
 
-	private Double[] bellmanFord(Double [][] weight, int source) throws InvalidGraphException {
+	private Double[] bellmanFord(int source) throws InvalidGraphException {
 
 		// Create estimates
-		int n = weight.length;
 
-		Double[] shortestPathEstimate = new Double[n];
-		Integer[] parent = new Integer[n];
+		Double[] distance = new Double[graph.V()];
 
-		for (int i = 0; i < n; i++) {
-			shortestPathEstimate[i] = Double.POSITIVE_INFINITY;
-			parent[i] = null;
+		for (int i = 0; i < graph.V(); i++) {
+			distance[i] = Double.POSITIVE_INFINITY;
 		}
 
-		shortestPathEstimate[source] = 0.0;
+		distance[source] = 0.0;
 
-		for (int i = 1; i < n - 1; i++) {
-			for (int j = 0; j < n; j++) {
-				for (int k = 0; k < n; k++) {
-					if (shortestPathEstimate[k] > shortestPathEstimate[j] + weight[j][k]) {
-						shortestPathEstimate[k] = shortestPathEstimate[j] + weight[j][k];
-						parent[k] = j;
-					} 
+		for (int times = 0; times < graph.V() - 1; times++) {
+			for (Edge e : graph.getEdges()) {
+
+				int start = e.getSource().getIndex();
+
+				int end = e.getDest().getIndex();
+
+				if (distance[start] + e.getCost() < distance[end]) {
+					distance[end] = distance[start] + e.getCost();
 				}
 			}
 		}
+		
+		for (Edge e : graph.getEdges()) {
+			int start = e.getSource().getIndex();
 
-		// Construct matrix with estimates from each point
+			int end = e.getDest().getIndex();
 
-		for (int y = 0; y < n; y++) {
-			for (int x = 0; x < n; x++) {
-				if (shortestPathEstimate[x] > shortestPathEstimate[y] + weight[y][x])
-					throw new InvalidGraphException("The graph is invalid because it contains a negative cycle in it.");
+			if (distance[start] + e.getCost() < distance[end]) {
+				throw new InvalidGraphException("El grafo contiene un ciclo negativo.");
 			}
 		}
 
-		return shortestPathEstimate;
+		return distance;
 	}
-
 }
