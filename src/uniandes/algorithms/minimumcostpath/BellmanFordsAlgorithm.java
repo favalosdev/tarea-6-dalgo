@@ -16,9 +16,6 @@ public class BellmanFordsAlgorithm {
 
 		// Create matrix to calculate the things as they should be
 		try {
-			
-			System.out.println("Graph loaded correctly.");
-
 			// Construir matriz de caminos mínimos
 			Double[][] distances = new Double[graph.V()][graph.V()];
 

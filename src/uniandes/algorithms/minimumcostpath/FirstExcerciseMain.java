@@ -42,9 +42,7 @@ public class FirstExcerciseMain {
 				String[] values = current.split("\t");
 
 				for (int j = 0; j < values.length; j++) {
-					
-					if (!values[j].equals("-1")) weight[i][j] = Double.parseDouble(values[j]);
-					else weight[i][j] = null;
+					weight[i][j] = Double.parseDouble(values[j]);
 				}
 				i++;
 			}
@@ -57,22 +55,22 @@ public class FirstExcerciseMain {
 			
 			Graph graph = new Graph(weight, true);
 			
-			System.out.println("Grafo cargado correctamente");
+			System.out.println("Grafo cargado correctamente.");
 			
 			Double[][] minimumCost = null;
 			
-			if (args[0].equals("FloydWarshalls")) {
+			if (args[0].equals("FloydWarshall")) {
 				FloydWarshallsAlgorithm alg = new FloydWarshallsAlgorithm(weight);
 				minimumCost = alg.findPaths();
-			} else if (args[0].equals("Dijkstras")) {
+			} else if (args[0].equals("Dijkstra")) {
 				DijkstrasAlgorithm alg = new DijkstrasAlgorithm(graph);
 				minimumCost = alg.findPaths(weight);
-			} else if (args[0].equals("BellmanFords")) {
+			} else if (args[0].equals("BellmanFord")) {
 				BellmanFordsAlgorithm alg = new BellmanFordsAlgorithm(graph);
 				minimumCost = alg.findPaths();
 			}
 
-			System.out.println("Algoritmo escogido: " + args[0]);
+			System.out.println("Algoritmo escogido: " + args[0] + ".");
 
 			// Test for small and medium only!
 

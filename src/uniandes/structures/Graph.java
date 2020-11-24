@@ -20,6 +20,8 @@ public class Graph {
 		this.vertexes = new LinkedList<Vertex>();
 		this.edges = new LinkedList<Edge>();
 		
+		for (int i = 0; i < matrix.length; i++) addVertex(i);
+		
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix.length; j++) {
 				if (matrix[i][j] != -1 && i != j) {
@@ -46,9 +48,6 @@ public class Graph {
 	}
 
 	public void addEdge(int source, int dest, Double cost) {
-		if (vertexes.get(source) == null) addVertex(source);
-		if (vertexes.get(dest) == null) addVertex(dest);
-		
 		Vertex v1 = vertexes.get(source);
 		Vertex v2 = vertexes.get(dest);
 		
