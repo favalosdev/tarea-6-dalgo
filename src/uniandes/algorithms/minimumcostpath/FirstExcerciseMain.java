@@ -65,7 +65,7 @@ public class FirstExcerciseMain {
 				FloydWarshallsAlgorithm alg = new FloydWarshallsAlgorithm(weight);
 				minimumCost = alg.findPaths();
 			} else if (args[0].equals("Dijkstras")) {
-				DijkstrasAlgorithm alg = new DijkstrasAlgorithm();
+				DijkstrasAlgorithm alg = new DijkstrasAlgorithm(graph);
 				minimumCost = alg.findPaths(weight);
 			} else if (args[0].equals("BellmanFords")) {
 				BellmanFordsAlgorithm alg = new BellmanFordsAlgorithm(graph);
