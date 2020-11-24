@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+
+
+Parte 2 BFS
+Ejecución:
+Para ejecutar el punto 2 hay que hacer dos cosas.
+1. Meterse a la carpeta "uniandes.algorithms.bfs" y allí toca abrir el archivo "data.txt" y poner la data del grafo al que se le quiere realizar el BFS.
+2. Irse a la clase "SecondExerciseMain.java" y cambiar la dirección del archivo de file a la del nuevo archivo "data.txt.
+3. Guardar todo y correr la clase "SecondExerciseMain.java"
