@@ -62,6 +62,8 @@ public class Graph {
 			v2.getAdj().add(reverse);
 			edges.add(reverse);
 		}
+		
+		E++;
 	}
 	
 	private void addVertex(int index) {

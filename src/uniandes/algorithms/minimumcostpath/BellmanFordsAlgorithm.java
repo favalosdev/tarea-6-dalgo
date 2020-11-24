@@ -2,7 +2,6 @@ package uniandes.algorithms.minimumcostpath;
 import algorithms.exceptions.InvalidGraphException;
 import uniandes.structures.Edge;
 import uniandes.structures.Graph;
-import uniandes.structures.Vertex;
 
 public class BellmanFordsAlgorithm {
 
