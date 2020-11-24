@@ -1,5 +1,12 @@
 package uniandes.algorithms.dfs;
 
-public class DFS {
+import algorithms.exceptions.InvalidGraphException;
 
+public class DFS {
+	
+	
+	public Double[] depthFirstSearch() throws InvalidGraphException {
+		
+		return null;
+	}
 }
