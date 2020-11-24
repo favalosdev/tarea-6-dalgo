@@ -17,7 +17,6 @@ public class FirstExcerciseMain {
 		// TODO Auto-generated method stub
 
 		try {
-
 			String chosen = "";
 
 			if      (args[1].equals("s")) chosen = SMALL;
@@ -78,7 +77,7 @@ public class FirstExcerciseMain {
 			if (minimumCost != null) {
 				for (int row = 0; row < minimumCost.length; row++) {
 					for (int col = 0; col < minimumCost.length; col++) {
-						System.out.print(minimumCost[row][col] + " "); 
+						System.out.print(minimumCost[row][col] + "\t"); 
 					}
 					System.out.println();
 				}
@@ -89,7 +88,5 @@ public class FirstExcerciseMain {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}	
 }
