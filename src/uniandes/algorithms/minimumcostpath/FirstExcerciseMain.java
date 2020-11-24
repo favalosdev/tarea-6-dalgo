@@ -40,8 +40,7 @@ public class FirstExcerciseMain {
 				String[] values = current.split("\t");
 				
 				for (int j = 0; j < values.length; j++) {	
-					if (values[j].equals("-1")) weight[i][j] = Double.POSITIVE_INFINITY;
-					else                        weight[i][j] = Double.parseDouble((values[j]));
+					weight[i][j] = Double.parseDouble(values[j]);
 				}
 				i++;
 			}

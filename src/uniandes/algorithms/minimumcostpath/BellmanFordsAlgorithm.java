@@ -20,7 +20,7 @@ public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
 			
 			return minimumCosts;
 		} catch (InvalidGraphException e) {
-			System.out.println("ERROR");
+			System.out.println(e.getMessage());
 			return null;
 		}
 	}

@@ -4,6 +4,9 @@ public class FloydWarshallsAlgorithm implements MinimumCostPathAlgorithm {
 	
 	public Double[][] findPaths(Double[][] weight) {		
 		// Change non-existent edges, otherwise the algorithm won't work
+		
+		// TODO: Revisar cambio aquí
+		
 		return floydWarshall(weight);
 	}
 	
