@@ -12,12 +12,12 @@ public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
 			Double[][] minimumCosts = new Double[n][n];
 
 			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
-					Double[] cost = bellmanFord(weight, i);
+				Double[] cost = bellmanFord(weight, i);
+				for (int j = 0; j < n; j++) {	
 					minimumCosts[j][i] = cost[j];
 				}
 			}
-			
+
 			return minimumCosts;
 		} catch (InvalidGraphException e) {
 			System.out.println(e.getMessage());
@@ -43,10 +43,13 @@ public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
 		for (int i = 1; i < n - 1; i++) {
 			for (int j = 0; j < n; j++) {
 				for (int k = 0; k < n; k++) {
-					if (shortestPathEstimate[k] > shortestPathEstimate[j] + weight[j][k]) {
-						shortestPathEstimate[k] = shortestPathEstimate[j] + weight[j][k];
-						parent[k] = j;
-					} 
+					// Verificar si el eje existe
+					if (weight[j][k] != -1) {
+						if (shortestPathEstimate[k] > shortestPathEstimate[j] + weight[j][k]) {
+							shortestPathEstimate[k] = shortestPathEstimate[j] + weight[j][k];
+							parent[k] = j;
+						} 
+					}
 				}
 			}
 		}
@@ -55,7 +58,8 @@ public class BellmanFordsAlgorithm implements MinimumCostPathAlgorithm {
 
 		for (int y = 0; y < n; y++) {
 			for (int x = 0; x < n; x++) {
-				if (shortestPathEstimate[x] > shortestPathEstimate[y] + weight[y][x])
+				// Nunca se evalua porque 
+				if (shortestPathEstimate[x] > shortestPathEstimate[y] + weight[y][x] && weight[y][x] != -1)
 					throw new InvalidGraphException("The graph is invalid because it contains a negative cycle in it.");
 			}
 		}
