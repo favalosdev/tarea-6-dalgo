@@ -31,7 +31,7 @@ public class SecondExerciseMain {
 				List<String> listOfString = new ArrayList<String>(Arrays.asList(data.split(" ")));
 				List<Integer> listOfInteger = convertStringListToIntList(listOfString, Integer::parseInt); 
 				matrix.add(listOfInteger);
-				System.out.println(data);
+//				System.out.println(data);
 			}
 			myReader.close();
 
@@ -103,7 +103,7 @@ public class SecondExerciseMain {
 							break;
 						}
 
-						System.out.println(resp);
+//						System.out.println(resp);
 					}
 
 				}
@@ -120,7 +120,7 @@ public class SecondExerciseMain {
 			q.add(verifyOtherElements(resp, y));
 			resp.add(verifyOtherElements(resp, y));
 		}
-		System.out.println(resp);
+//		System.out.println(resp);
 		respfinal += "{";
 		
 		boolean segmento = false;
