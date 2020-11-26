@@ -5,7 +5,7 @@ import java.io.FileReader;
 
 import uniandes.structures.Graph;
 
-public class FirstExcerciseMain {
+public class FirstExerciseMain {
 
 	private final static String SMALL = "./data/distances5.txt";
 
@@ -63,7 +63,7 @@ public class FirstExcerciseMain {
 				minimumCost = alg.findPaths();
 			} else if (args[0].equals("Dijkstra")) {
 				DijkstrasAlgorithm alg = new DijkstrasAlgorithm(graph);
-				minimumCost = alg.findPaths(weight);
+				minimumCost = alg.findPaths();
 			} else if (args[0].equals("BellmanFord")) {
 				BellmanFordsAlgorithm alg = new BellmanFordsAlgorithm(graph);
 				minimumCost = alg.findPaths();

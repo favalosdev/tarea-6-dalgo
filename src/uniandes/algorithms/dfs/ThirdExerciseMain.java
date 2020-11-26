@@ -1,6 +1,6 @@
 package uniandes.algorithms.dfs;
 
-public class ThirdExcerciseMain {
+public class ThirdExerciseMain {
 
 	// TODO: Find suitable data sets for algorithms
 	
