@@ -9,14 +9,17 @@ public class Vertex {
 	private LinkedList<Edge> adj;
 	
 	// Variables auxiliares
-	private boolean visited;
+	private boolean visitedTemp;
+	
+	private boolean visitedPerm;
 	
 	private Double dist;
 	
 	public Vertex(int index) {
 		this.index = index;
 		this.adj = new LinkedList<Edge>();
-		this.visited = false;
+		this.visitedTemp = false;
+		this.visitedPerm = false;
 		this.dist = null;
 	}
 	
@@ -35,13 +38,21 @@ public class Vertex {
 	public void setAdj(LinkedList<Edge> adj) {
 		this.adj = adj;
 	}
-
-	public boolean isVisited() {
-		return visited;
+	
+	public boolean isVisitedTemp() {
+		return visitedTemp;
+	}
+	
+	public void setVisitedTemp(boolean visitedTemp) {
+		this.visitedTemp = visitedTemp;
 	}
 
-	public void setVisited(boolean visited) {
-		this.visited = visited;
+	public boolean isVisitedPerm() {
+		return visitedPerm;
+	}
+
+	public void setVisitedPerm(boolean visitedPerm) {
+		this.visitedPerm = visitedPerm;
 	}
 
 	public Double getDist() {
