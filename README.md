@@ -14,7 +14,7 @@ Adjuntamos los tiempos de ejecución.
 Las magnitudes están dadas en milisegundos. 
 
 ## *Parte 2*
-Abrir el paquete .bfs y ejecutar la clase main. Se puede cambiar el grafo a cargar. Incluimos un grafo por defecto que corresponde al que estaba en el enunciado
+Abrir el paquete .bfs y ejecutar la clase main. Se puede cambiar el grafo a cargar. Incluimos un grafo por defecto; el mismo estaba en el enunciado
 de la tarea.
 
 ## *Parte 3*
