@@ -20,6 +20,6 @@ Abrir el paquete .bfs y ejecutar la clase main. Se puede cambiar el grafo a carg
 de la tarea.
 
 ## *Parte 3*
-Abrir el paquete .dfs y ejecutar la clase main. Se puede cambiar el grafo a cargar. Hay dos maneras de probar el algoritmo. La primera es pasando como primer argumento "top", en cuyo caso se cargará el grafo descrito en la imagen y se reportará el orden topológico. La siguiente opción consiste en cargar un grafo con ciclos para demostrar la capacidad del algoritmo de detectarlos.
+Abrir el paquete .dfs y ejecutar la clase main. Se puede cambiar el grafo a cargar. Hay dos maneras de probar el algoritmo. La primera es pasando como primer argumento "top", en cuyo caso se cargará el grafo descrito en la imagen y se reportará el orden topológico. La siguiente opción consiste en cargar un grafo con ciclos para demostrar la capacidad del algoritmo de detectarlos por medio del argumento "error". 
 
 ![Markdown Image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/graph.png)
