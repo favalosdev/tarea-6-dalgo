@@ -28,12 +28,11 @@ public class DFS {
 			
 			// Reportar los vértices
 			
+			System.out.print("El orden topológico es: ");
 			while (!ordered.isEmpty()) {
 				System.out.print(ordered.poll().getIndex());
 				
-				if (ordered.peek() != null) System.out.print(" ->");
-				
-				System.out.println();
+				if (ordered.peek() != null) System.out.print(" -> ");
 			}
 			
 		} catch (InvalidGraphException e) {

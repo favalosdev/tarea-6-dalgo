@@ -1,15 +1,13 @@
 package uniandes.algorithms.minimumcostpath;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 import algorithms.exceptions.InvalidGraphException;
 import uniandes.structures.Edge;
 import uniandes.structures.Graph;
+import uniandes.structures.Vertex;
+
 public class DijkstrasAlgorithm {
 	
 	private Graph graph;
@@ -26,11 +24,12 @@ public class DijkstrasAlgorithm {
 			Double[][] distances = new Double[graph.V()][graph.V()];
 
 			for (int key = 0; key < graph.V(); key++) {
-
-				Double[] values = dijkstra(key);
-
-				for (int j = 0; j < values.length; j++)
-					distances[j][key] = values[j]; 
+				Vertex source = graph.getVertexes().get(key);
+				dijkstra(source);
+				
+				for (Vertex v : graph.getVertexes()) {
+					distances[v.getIndex()][key] = v.getDist();
+				}
 			}
 			
 			return distances;
@@ -41,51 +40,43 @@ public class DijkstrasAlgorithm {
 		}
 	}
 
-	private Double[] dijkstra(int source) throws InvalidGraphException {
-
-		// Create estimates
-
-		Double[] distance = new Double[graph.V()];
-
-		for (int i = 0; i < graph.V(); i++) {
-			distance[i] = Double.POSITIVE_INFINITY;
-		}
-
-		distance[source] = 0.0;
-
-		for (int times = 0; times < graph.V() - 1; times++) {
-			for (Edge e : graph.getEdges()) {
-
-				int start = e.getSource().getIndex();
-
-				int end = e.getDest().getIndex();
-
-				if (distance[start] + e.getCost() < distance[end]) {
-					distance[end] = distance[start] + e.getCost();
+	private void dijkstra(Vertex source) throws InvalidGraphException {		
+		// Método para inicializar Dijkstra
+		for (Vertex v : graph.getVertexes())
+			v.setDist(Double.POSITIVE_INFINITY);
+		
+		source.setDist(0.0);
+		
+		// Crear MinPriorityQueue
+		
+		PriorityQueue<Vertex> minPQ = new PriorityQueue<Vertex>(graph.V(), new VertexComparator());
+		
+		// Llenar la minPQ
+		for (Vertex v : graph.getVertexes())
+			minPQ.add(v);
+		
+		while (!minPQ.isEmpty()) {
+			Vertex u = minPQ.poll();
+			
+			for (Edge e : u.getAdj()) {
+				Vertex end = e.getDest();
+				
+				if (minPQ.contains(end)) {
+					Double offer = u.getDist() + e.getCost();
+					
+					if (offer < end.getDist())
+						end.setDist(offer);
 				}
 			}
 		}
+	}
+	
+	public class VertexComparator implements Comparator<Vertex> {
 		
-		for (Edge e : graph.getEdges()) 
-		{
-
-			if (e.getCost() < 0 && e.getCost() !=-1) 
-			{
-				throw new InvalidGraphException("El algoritmo de Dijkstra solo puede manejar pesos positivos.");
-			}
+		@Override
+		public int compare(Vertex v1, Vertex v2) {
+			return Double.compare(v1.getDist(), v2.getDist());
 		}
-		
-		for (Edge e : graph.getEdges()) {
-			int start = e.getSource().getIndex();
-
-			int end = e.getDest().getIndex();
-
-			if (distance[start] + e.getCost() < distance[end]) {
-				throw new InvalidGraphException("El grafo contiene un ciclo negativo.");
-			}
-		}
-
-		return distance;
 	}
 }
 

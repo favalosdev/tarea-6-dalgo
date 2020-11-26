@@ -52,7 +52,7 @@ public class FirstExerciseMain {
 			
 			// Either Dijkstras, BellmanFords or FloydWarschalls
 			
-			Graph graph = new Graph(weight, true);
+			Graph graph = new Graph(weight);
 			
 			System.out.println("Grafo cargado correctamente.");
 			

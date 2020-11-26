@@ -11,7 +11,7 @@ public class Vertex {
 	// Variables auxiliares
 	private boolean visitedTemp;
 	
-	private boolean visitedPerm;
+	private boolean visitedPerm; 
 	
 	private Double dist;
 	
