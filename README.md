@@ -1,5 +1,7 @@
 # tarea-6-dalgo
 
+Trabajo realizado por Fernando Ávalos y Daniel Perilla Ocampo.
+
 ## *Parte 1*
 La ejecución de la primera parte precisa de pasar argumentos por la línea de comandos. Se puede escoger entre tres algoritmos Dijkstra, BellmanFord y FloydWarshall y tres tipos de datos distintos, a los cuales les corresponden los carácteres s, m, b (small, medium, big). El primer argumento es el nombre del algoritmo a utilizar y el segundo es el carácter empleado. Ejemplos de entradas válidas serían FloydWarshall s o BellmanFord b.
 
