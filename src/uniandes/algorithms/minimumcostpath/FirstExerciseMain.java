@@ -58,6 +58,8 @@ public class FirstExerciseMain {
 			
 			Double[][] minimumCost = null;
 			
+			
+			long start = System.currentTimeMillis();
 			if (args[0].equals("FloydWarshall")) {
 				FloydWarshallsAlgorithm alg = new FloydWarshallsAlgorithm(weight);
 				minimumCost = alg.findPaths();
@@ -70,21 +72,12 @@ public class FirstExerciseMain {
 			}
 
 			System.out.println("Algoritmo escogido: " + args[0] + ".");
-
-			// Test for small and medium only!
-
-			System.out.println("Los caminos mínimos son: ");
-			if (minimumCost != null) {
-				for (int row = 0; row < minimumCost.length; row++) {
-					for (int col = 0; col < minimumCost.length; col++) {
-						System.out.print(minimumCost[row][col] + "\t"); 
-					}
-					System.out.println();
-				}
-			} else {
-				System.out.println("No se pudo cargar la matriz. Ocurrió un error.");
-			}
-
+			
+			long end = System.currentTimeMillis();
+			
+			long elapsedTime = end - start;
+			
+			System.out.println("Tiempo transcurrido: " + elapsedTime);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
