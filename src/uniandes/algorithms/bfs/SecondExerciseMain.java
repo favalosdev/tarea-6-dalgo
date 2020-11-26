@@ -9,10 +9,12 @@ import uniandes.structures.Vertex;
 
 public class SecondExerciseMain {
 
+	private final static String SOURCE = "./data/bfsTest.txt";
+	
 	public static void main(String[] args) {
 		
 		try {
-			BufferedReader counter = new BufferedReader(new FileReader("./data/bfsTest.txt"));
+			BufferedReader counter = new BufferedReader(new FileReader(SOURCE));
 			String current = null;
 			int rows = 1;
 			int cols = counter.readLine().split("\t").length;
@@ -23,7 +25,7 @@ public class SecondExerciseMain {
 
 			counter.close();
 
-			BufferedReader parser = new BufferedReader(new FileReader("./data/bfsTest.txt"));
+			BufferedReader parser = new BufferedReader(new FileReader(SOURCE));
 			int i = 0;
 
 			while ((current = parser.readLine()) != null) {
